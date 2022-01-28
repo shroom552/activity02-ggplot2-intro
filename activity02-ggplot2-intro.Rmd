@@ -212,20 +212,27 @@ Create graphs to explore the relationship between `bill_length_mm` and each of `
 Using these three graphs to discuss which of these three categorical variables seems to be contributing more to these two peaks and explain your reasoning.
 
 ```{r bill_length_by_species}
-
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = species)) +
+  geom_jitter(aes(color = species))+
+  geom_boxplot(alpha = .5)
 ```
 
 
 ```{r bill_length_by_sex}
-
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = sex)) +
+  geom_jitter(aes(color = sex))+
+  geom_boxplot(alpha = .5)
 ```
 
 
 ```{r bill_length_by_island}
-
+ggplot(data = penguins, mapping = aes(x = bill_length_mm, y = island)) +
+  geom_jitter(aes(color = island))+
+  geom_boxplot(alpha = .5)
 ```
 
-**Response**:
+**Response**: It seems that the categorical variable `species` is a large factor in these two peaks in `bill_length_mm` around 39 mm and 46 mm.
+you can see that the Adelie species has a bill length mean around 39 mm and both the Gentoo and Chinstrap have means around 46 mm.
 
 
 
