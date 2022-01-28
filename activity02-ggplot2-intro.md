@@ -334,16 +334,38 @@ exploring scatterplots using `{ggplot2}`.
 In the code chunk below, create a scatterplot for the relationship
 between `flipper_length_mm` and `body_mass_g`.
 
+``` r
+ggplot(penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point()
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/flipper_vs_mass-1.png)<!-- -->
+
 Describe any patterns that you notice.
 
-**Response**:
+**Response**: There seems to be a positive correlation between body mass
+and flipper length.
 
 Recreate your scatterplot in the code chunk below; however, *map*
 `species` to the `color` and `shape` aesthetics.
 
+``` r
+ggplot(penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = species)) +
+  geom_point()
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/flipper_vs_mass_with_species-1.png)<!-- -->
+
 Describe any patterns that you notice.
 
-**Response**:
+**Response**: I notice that the Gentoo species is notably segregated
+from the other two species. Also that, between the Chinstrap and Adelie,
+the Chinstrap species tends to have a longer flipper length and weigh
+less.
 
 The previous plot looked great except even in this rather small dataset
 (n = 344), there might are a number of points overlapping. In the R code
@@ -352,9 +374,21 @@ aesthetic) of `size` (using some value larger than zero) and `alpha`
 (using some value between 0 and 1) to make your previous plot more
 effective.
 
+``` r
+ggplot(penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g, color = species, shape = species, alpha = .0001)) +
+  geom_point()
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/flipper_vs_mass_with_size_alpha-1.png)<!-- -->
+
 Discuss the decisions you made to help your plot be easier to read.
 
-**Response**:
+**Response**: It seems that setting aesthetic to any particular number
+matters. I certainly like the addition of `alpha`, neither `alpha` or
+`size` where responsive to what value I entered and I simply didn’t like
+the size of which it made the points.
 
 Knit, then stage everything listed in your **Git** pane, commit (with a
 meaningful commit message), and push to your GitHub repo. Go to GitHub
